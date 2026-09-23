@@ -1,0 +1,2082 @@
+/*
+ * Cookbook — quiet, flat and dense: near-black surfaces, hairline borders, small radii, medium
+ * weight type, one indigo accent. Built on Frosting's colours (--fr-*), which load first.
+ */
+
+.cookbook-root {
+    flex-grow: 1;
+    background-color: var(--fr-background);
+    --cb-code: #0b0c0e;
+    --cb-reading-width: 760px;
+    --cb-hover: rgba(255, 255, 255, 0.035);
+    --cb-selected: rgba(255, 255, 255, 0.06);
+    --cb-hairline: rgba(255, 255, 255, 0.07);
+    --cb-hairline-strong: rgba(255, 255, 255, 0.11);
+    --cb-body: #d2d5da;
+    font-size: 13px;
+}
+
+/* ---------------------------------------------------------------- Toolbar */
+
+.cookbook__toolbar {
+    flex-direction: row;
+    align-items: center;
+    flex-shrink: 0;
+    height: 40px;
+    padding: 0 10px;
+    border-bottom-width: 1px;
+    border-color: var(--cb-hairline);
+    background-color: var(--fr-background);
+}
+
+.cookbook__tool {
+    height: 26px;
+    min-width: 26px;
+    margin: 0 1px;
+    padding: 0 8px;
+    border-width: 0;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0);
+    color: var(--fr-label);
+    font-size: 14px;
+}
+
+.cookbook__tool:hover {
+    background-color: var(--cb-selected);
+    color: var(--fr-text);
+}
+
+.cookbook__tool:disabled {
+    opacity: 0.3;
+}
+
+.cookbook__home {
+    margin-right: 4px;
+    font-size: 12px;
+    -unity-font-definition: resource("Fonts/Inter/Inter-SemiBold.ttf");
+}
+
+.cookbook__edit {
+    margin-left: 6px;
+    padding: 0 12px;
+    border-width: 1px;
+    border-color: var(--cb-hairline-strong);
+    background-color: rgba(255, 255, 255, 0.04);
+    color: var(--fr-text);
+    font-size: 12px;
+    -unity-font-definition: resource("Fonts/Inter/Inter-SemiBold.ttf");
+}
+
+.cookbook__edit--on {
+    border-color: var(--fr-accent);
+    background-color: var(--fr-accent);
+    color: #ffffff;
+}
+
+.cookbook__edit--on:hover {
+    background-color: #6c78de;
+    color: #ffffff;
+}
+
+.cookbook__trail {
+    flex-direction: row;
+    flex-grow: 1;
+    flex-shrink: 1;
+    align-items: center;
+    overflow: hidden;
+    margin: 0 8px;
+}
+
+.cookbook__crumb {
+    flex-shrink: 1;
+    min-width: 20px;
+    height: 24px;
+    margin: 0;
+    padding: 0 6px;
+    border-width: 0;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0);
+    color: var(--fr-muted);
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cookbook__crumb:hover {
+    background-color: var(--cb-selected);
+    color: var(--fr-text);
+}
+
+.cookbook__crumb--here {
+    color: var(--fr-text);
+    -unity-font-definition: resource("Fonts/Inter/Inter-SemiBold.ttf");
+}
+
+.cookbook__crumb-separator {
+    margin: 0;
+    color: var(--fr-muted);
+    font-size: 12px;
+}
+
+.cookbook-root .cookbook__search {
+    width: 220px;
+    flex-shrink: 1;
+    margin: 0 4px;
+}
+
+/* ---------------------------------------------------------------- Layout */
+
+.cookbook__split {
+    flex-grow: 1;
+}
+
+.cookbook__content {
+    flex-grow: 1;
+}
+
+.cookbook__reading {
+    flex-grow: 1;
+}
+
+.cookbook__reading-content {
+    align-items: center;
+    padding: 28px 36px 60px 36px;
+}
+
+/* ---------------------------------------------------------------- Sidebar */
+
+.cookbook__sidebar {
+    flex-grow: 1;
+    border-right-width: 1px;
+    border-color: var(--cb-hairline);
+    background-color: var(--fr-bar);
+}
+
+.cookbook__sidebar-heading {
+    flex-direction: row;
+    align-items: center;
+    height: 30px;
+    margin-top: 6px;
+    padding: 0 8px 0 14px;
+}
+
+.cookbook__sidebar-heading > Label {
+    flex-grow: 1;
+    color: var(--fr-muted);
+    font-size: 11px;
+    -unity-font-definition: resource("Fonts/Inter/Inter-SemiBold.ttf");
+}
+
+.cookbook__sidebar-add {
+    width: 22px;
+    height: 22px;
+    margin: 0;
+    padding: 0;
+    border-width: 0;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0);
+    color: var(--fr-muted);
+    font-size: 15px;
+}
+
+.cookbook__sidebar-add:hover {
+    background-color: var(--cb-selected);
+    color: var(--fr-text);
+}
+
+.cookbook-tree {
+    flex-grow: 1;
+    padding: 0 8px;
+}
+
+.cookbook-tree > .unity-tree-view {
+    flex-grow: 1;
+    border-width: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.cookbook-tree .unity-collection-view__item {
+    margin: 0;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.cookbook-tree .unity-collection-view__item:hover {
+    background-color: var(--cb-hover);
+}
+
+.cookbook-tree .unity-collection-view__item--selected,
+.cookbook-tree .unity-collection-view__item--selected:hover {
+    background-color: var(--cb-selected);
+}
+
+.cookbook-tree .unity-tree-view__item-toggle {
+    margin: 0 0 0 2px;
+}
+
+.cookbook-tree .unity-tree-view__item-toggle .unity-toggle__checkmark {
+    -unity-background-image-tint-color: #5f636b;
+}
+
+.cookbook-tree .unity-collection-view__item:hover .unity-toggle__checkmark {
+    -unity-background-image-tint-color: #9a9ea6;
+}
+
+.cookbook-tree__row {
+    flex-direction: row;
+    align-items: center;
+    flex-grow: 1;
+    padding-right: 6px;
+}
+
+.cookbook-tree__icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 9px;
+    flex-shrink: 0;
+    opacity: 0.55;
+}
+
+.cookbook-tree__title {
+    flex-shrink: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--fr-label);
+    font-size: 13px;
+}
+
+.cookbook-tree .unity-collection-view__item:hover .cookbook-tree__title {
+    color: var(--fr-text);
+}
+
+.cookbook-tree .unity-collection-view__item--selected .cookbook-tree__title {
+    color: #ffffff;
+    -unity-font-definition: resource("Fonts/Inter/Inter-SemiBold.ttf");
+}
+
+.cookbook-tree .unity-collection-view__item--selected .cookbook-tree__icon {
+    opacity: 0.9;
+}
+
+.cookbook-tree .unity-scroller--vertical {
+    width: 8px;
+    border-width: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+/* ---------------------------------------------------------------- Tag filter */
+
+.cookbook-tags {
+    flex-shrink: 0;
+    padding: 12px 12px 8px 12px;
+    border-bottom-width: 1px;
+    border-color: var(--cb-hairline);
+}
+
+.cookbook-tags__head {
+    flex-direction: row;
+    align-items: center;
+    height: 18px;
+    margin-bottom: 8px;
+}
+
+.cookbook-tags__head > Label {
+    flex-grow: 1;
+    color: var(--fr-muted);
+    font-size: 11px;
+    -unity-font-definition: resource("Fonts/Inter/Inter-SemiBold.ttf");
+}
+
+.cookbook-tags__clear,
+.cookbook-tags__more {
+    height: 18px;
+    margin: 0;
+    padding: 0 6px;
+    border-width: 0;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0);
+    color: var(--fr-label);
+    font-size: 11px;
+}
+
+.cookbook-tags__clear:hover,
+.cookbook-tags__more:hover {
+    background-color: var(--cb-selected);
+    color: var(--fr-text);
+}
+
+.cookbook-tags__more {
+    align-self: flex-start;
+    margin-top: 2px;
+}
+
+.cookbook-tags__find {
+    margin: 0 0 8px 0;
+}
+
+.cookbook-tags__find > .unity-base-text-field__input {
+    height: 24px;
+    padding: 0 8px;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: var(--cb-hairline);
+    background-color: rgba(255, 255, 255, 0.03);
+    font-size: 12px;
+}
+
+.cookbook-tags__chips {
+    max-height: 150px;
+}
+
+.cookbook-tags__chips-content {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.cookbook-tags__chips #none {
+    margin: 2px 0 6px 2px;
+    color: var(--fr-muted);
+    font-size: 12px;
+}
+
+/* ---------------------------------------------------------------- Tag chips */
+
+.cookbook-chip {
+    flex-direction: row;
+    align-items: center;
+    height: 22px;
+    margin: 0 4px 4px 0;
+    padding: 0 8px 0 7px;
+    border-width: 1px;
+    border-radius: 11px;
+    border-color: var(--cb-hairline-strong);
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.cookbook-chip--clickable {
+    cursor: link;
+}
+
+.cookbook-chip--clickable:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--cb-hover);
+}
+
+.cookbook-chip--picked {
+    border-color: rgba(255, 255, 255, 0.28);
+    background-color: rgba(255, 255, 255, 0.09);
+}
+
+.cookbook-chip__dot {
+    width: 7px;
+    height: 7px;
+    margin-right: 6px;
+    border-radius: 4px;
+}
+
+.cookbook-chip__name {
+    color: var(--cb-body);
+    font-size: 12px;
+}
+
+.cookbook-chip--picked .cookbook-chip__name {
+    color: #ffffff;
+}
+
+.cookbook-chip__count {
+    margin-left: 6px;
+    color: var(--fr-muted);
+    font-size: 11px;
+}
+
+.cookbook-chip__remove {
+    margin-left: 4px;
+    padding: 0 2px;
+    color: var(--fr-muted);
+    font-size: 13px;
+    cursor: link;
+}
+
+.cookbook-chip__remove:hover {
+    color: var(--fr-text);
+}
+
+/* ---------------------------------------------------------------- Lists of rows */
+
+.cookbook-list-frame {
+    border-width: 1px;
+    border-radius: 6px;
+    border-color: var(--cb-hairline);
+    background-color: rgba(255, 255, 255, 0.015);
+    overflow: hidden;
+}
+
+.cookbook-row {
+    flex-direction: row;
+    align-items: center;
+    height: 38px;
+    padding: 0 12px;
+    border-bottom-width: 1px;
+    border-color: var(--cb-hairline);
+    cursor: link;
+}
+
+.cookbook-row:hover {
+    background-color: var(--cb-hover);
+}
+
+.cookbook-row__leading {
+    width: 16px;
+    height: 16px;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.cookbook-row__badge {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+    -unity-text-align: middle-center;
+    font-size: 11px;
+    -unity-font-definition: resource("Fonts/Inter/Inter-SemiBold.ttf");
+}
+
+.cookbook-row__title {
+    flex-shrink: 0;
+    max-width: 45%;
+    color: var(--fr-text);
+    font-size: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -unity-font-definition: resource("Fonts/Inter/Inter-SemiBold.ttf");
+}
+
+.cookbook-row__detail {
+    flex-grow: 1;
+    flex-shrink: 1;
+    margin-left: 12px;
+    color: var(--fr-muted);
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cookbook-row__trailing {
+    flex-shrink: 0;
+    margin-left: 12px;
+    color: var(--fr-muted);
+    font-size: 12px;
+}
+
+/* ---------------------------------------------------------------- Home */
+
+.cookbook-home {
+    width: 100%;
+    max-width: var(--cb-reading-width);
+}
+
+.cookbook-home__header {
+    margin: 12px 0 20px 0;
+}
+
+.cookbook-home__title {
+    color: var(--fr-text);
+    font-size: 24px;
+    letter-spacing: -0.4px;
+    -unity-font-definition: resource("Fonts/Inter/Inter-SemiBold.ttf");
+}
+
+.cookbook-home__intro {
+    margin-top: 6px;
+    color: var(--fr-label);
+    font-size: 14px;
+    white-space: normal;
+}
+
+.cookbook-home__intro-markdown {
+    margin-top: 6px;
+}
+
+.cookbook-home__intro-markdown .cookbook-text {
+    color: var(--fr-label);
+    font-size: 14px;
+}
+
+.cookbook-home__facts {
+    margin-top: 10px;
+    color: var(--fr-muted);
+    font-size: 12px;
+}
+
+.cookbook-home__search {
+    flex-direction: row;
+    align-items: center;
+    height: 36px;
+    margin-bottom: 28px;
+    padding: 0 12px;
+    border-width: 1px;
+    border-radius: 6px;
+    border-color: var(--cb-hairline-strong);
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.cookbook-home__search:hover {
+    border-color: rgba(255, 255, 255, 0.18);
+}
+
+.cookbook-home__search-icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 8px;
+    opacity: 0.55;
+}
+
+.cookbook-home__search-field {
+    flex-grow: 1;
+    margin: 0;
+}
+
+.cookbook-home__search-field > .unity-base-text-field__input {
+    height: 34px;
+    padding: 0;
+    border-width: 0;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 14px;
+}
+
+.cookbook-home__section {
+    margin-bottom: 28px;
+}
+
+.cookbook-home__section-head {
+    flex-direction: row;
+    align-items: center;
+    margin: 0 0 10px 2px;
+}
+
+.cookbook-home__heading {
+    color: var(--fr-text);
+    font-size: 13px;
+    -unity-font-definition: resource("Fonts/Inter/Inter-SemiBold.ttf");
+}
+
+.cookbook-home__heading-count {
+    margin-left: 8px;
+    color: var(--fr-muted);
+    font-size: 12px;
+}
+
+.cookbook-home__tags {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/* ---------------------------------------------------------------- Page */
+
+.cookbook-page {
+    width: 100%;
+    max-width: var(--cb-reading-width);
+}
+
+.cookbook-page__banner {
+    height: 140px;
+    margin-bottom: 24px;
+    border-radius: 6px;
+    -unity-background-scale-mode: scale-and-crop;
+}
+
+.cookbook-page__title {
+    margin: 4px 0 10px 0;
+    color: var(--fr-text);
+    font-size: 26px;
+    letter-spacing: -0.5px;
+    white-space: normal;
+    -unity-font-definition: resource("Fonts/Inter/Inter-SemiBold.ttf");
+}
+
+.cookbook-page__details {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 22px;
+    padding-bottom: 14px;
+    border-bottom-width: 1px;
+    border-color: var(--cb-hairline);
+}
+
+.cookbook-page__updated {
+    margin: 0 0 4px 4px;
+    color: var(--fr-muted);
+    font-size: 12px;
+}
+
+.cookbook-page__children {
+    margin-top: 12px;
+}
+
+.cookbook-page__empty {
+    margin-top: 12px;
+    color: var(--fr-muted);
+}
+
+/* ---------------------------------------------------------------- Markdown */
+
+.cookbook-markdown {
+    width: 100%;
+}
+
+.cookbook-text {
+    white-space: normal;
+    color: var(--cb-body);
+    font-size: 14px;
+}
+
+.cookbook-text--link-hover {
+    cursor: link;
+}
+
+.cookbook-paragraph {
+    margin: 0 0 12px 0;
+}
+
+.cookbook-paragraph.cookbook-paragraph--goes-on {
+    margin-bottom: 0;
+}
+
+.cookbook-h1,
+.cookbook-h2,
+.cookbook-h3,
+.cookbook-h4,
+.cookbook-h5,
+.cookbook-h6 {
+    color: var(--fr-text);
+    -unity-font-definition: resource("Fonts/Inter/Inter-SemiBold.ttf");
+}
+
+.cookbook-h1 {
+    margin: 26px 0 10px 0;
+    font-size: 21px;
+    letter-spacing: -0.3px;
+}
+
+.cookbook-h2 {
+    margin: 24px 0 8px 0;
+    font-size: 17px;
+    letter-spacing: -0.2px;
+}
+
+.cookbook-h3 {
+    margin: 18px 0 6px 0;
+    font-size: 15px;
+}
+
+.cookbook-h4,
+.cookbook-h5,
+.cookbook-h6 {
+    margin: 14px 0 6px 0;
+    font-size: 13px;
+    color: var(--fr-label);
+}
+
+.cookbook-list {
+    margin: 0 0 12px 0;
+}
+
+.cookbook-list .cookbook-list {
+    margin: 2px 0 0 0;
+}
+
+.cookbook-list__item {
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.cookbook-list__marker {
+    min-width: 20px;
+    padding-right: 6px;
+    -unity-text-align: upper-right;
+    color: var(--fr-muted);
+    font-size: 14px;
+}
+
+.cookbook-list__marker--task {
+    width: 2px;
+}
+
+.cookbook-list__content {
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding-left: 2px;
+}
+
+.cookbook-list__content > .cookbook-paragraph {
+    margin-bottom: 4px;
+}
+
+.cookbook-task {
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: 4px;
+}
+
+.cookbook-task > .cookbook-paragraph {
+    flex-shrink: 1;
+    margin-bottom: 0;
+}
+
+.cookbook-task__box {
+    width: 14px;
+    height: 14px;
+    margin: 2px 10px 0 0;
+    padding: 0;
+    flex-shrink: 0;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: rgba(255, 255, 255, 0.22);
+    background-color: rgba(0, 0, 0, 0);
+    -unity-text-align: middle-center;
+    font-size: 10px;
+    color: #ffffff;
+    cursor: link;
+}
+
+.cookbook-task__box:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.cookbook-task__box--checked {
+    border-color: var(--fr-accent);
+    background-color: var(--fr-accent);
+}
+
+.cookbook-task__text--checked {
+    color: var(--fr-muted);
+}
+
+.cookbook-quote {
+    margin: 0 0 12px 0;
+    padding: 2px 0 0 14px;
+    border-left-width: 2px;
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
+.cookbook-quote > .cookbook-text {
+    color: var(--fr-label);
+}
+
+.cookbook-callout {
+    margin: 2px 0 14px 0;
+    padding: 12px 14px 2px 14px;
+    border-width: 1px;
+    border-radius: 6px;
+    border-color: var(--cb-hairline);
+    background-color: rgba(255, 255, 255, 0.025);
+}
+
+.cookbook-callout__title {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.cookbook-callout__icon {
+    width: 8px;
+    height: 8px;
+    margin-right: 8px;
+    border-radius: 4px;
+    background-color: var(--fr-muted);
+}
+
+.cookbook-callout__name {
+    color: var(--fr-text);
+    font-size: 13px;
+    -unity-font-definition: resource("Fonts/Inter/Inter-SemiBold.ttf");
+}
+
+.cookbook-callout--note .cookbook-callout__icon,
+.cookbook-callout--important .cookbook-callout__icon {
+    background-color: var(--fr-accent);
+}
+
+.cookbook-callout--tip .cookbook-callout__icon {
+    background-color: #4cb782;
+}
+
+.cookbook-callout--warning .cookbook-callout__icon {
+    background-color: #f2c94c;
+}
+
+.cookbook-callout--caution .cookbook-callout__icon {
+    background-color: var(--fr-danger);
+}
+
+.cookbook-code {
+    margin: 0 0 14px 0;
+    border-width: 1px;
+    border-radius: 6px;
+    border-color: var(--cb-hairline);
+    background-color: var(--cb-code);
+    overflow: hidden;
+}
+
+.cookbook-code__bar {
+    flex-direction: row;
+    align-items: center;
+    height: 28px;
+    padding: 0 6px 0 12px;
+    border-bottom-width: 1px;
+    border-color: var(--cb-hairline);
+}
+
+.cookbook-code__language {
+    flex-grow: 1;
+    color: var(--fr-muted);
+    font-size: 11px;
+}
+
+.cookbook-code__copy {
+    height: 20px;
+    margin: 0;
+    padding: 0 8px;
+    border-width: 0;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0);
+    color: var(--fr-muted);
+    font-size: 11px;
+}
+
+.cookbook-code__copy:hover {
+    background-color: var(--cb-selected);
+    color: var(--fr-text);
+}
+
+.cookbook-code__lines {
+    padding: 12px 14px;
+}
+
+.cookbook-code__text {
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+    color: #d6d9de;
+    font-size: 12px;
+    -unity-font-definition: resource("Fonts/RobotoMono/RobotoMono-Regular SDF.asset");
+}
+
+.cookbook-rule {
+    height: 1px;
+    margin: 18px 0;
+    background-color: var(--cb-hairline);
+}
+
+.cookbook-table {
+    margin: 0 0 14px 0;
+    border-width: 1px;
+    border-radius: 6px;
+    border-color: var(--cb-hairline);
+    overflow: hidden;
+}
+
+.cookbook-table__row {
+    flex-direction: row;
+    border-bottom-width: 1px;
+    border-color: var(--cb-hairline);
+}
+
+.cookbook-table__row--header {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.cookbook-table__row--header .cookbook-text {
+    color: var(--fr-label);
+    font-size: 12px;
+    -unity-font-definition: resource("Fonts/Inter/Inter-SemiBold.ttf");
+}
+
+.cookbook-table__cell {
+    flex-basis: 0;
+    flex-shrink: 1;
+    padding: 8px 12px 0 12px;
+}
+
+.cookbook-table__cell > .cookbook-paragraph {
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+
+.cookbook-table__cell--center > .cookbook-text {
+    -unity-text-align: upper-center;
+}
+
+.cookbook-table__cell--right > .cookbook-text {
+    -unity-text-align: upper-right;
+}
+
+.cookbook-picture {
+    align-items: flex-start;
+    margin: 4px 0 16px 0;
+}
+
+.cookbook-picture__image {
+    width: 100%;
+    border-width: 1px;
+    border-radius: 6px;
+    border-color: var(--cb-hairline);
+}
+
+.cookbook-picture__caption {
+    margin-top: 6px;
+    color: var(--fr-muted);
+    font-size: 12px;
+}
+
+.cookbook-picture__missing {
+    padding: 10px 12px;
+    border-width: 1px;
+    border-radius: 6px;
+    border-color: var(--cb-hairline);
+    color: var(--fr-muted);
+}
+
+/* ---------------------------------------------------------------- Guide steps */
+
+.cookbook-action {
+    flex-direction: row;
+    align-items: center;
+    margin: 4px 0 14px 0;
+    padding: 12px 12px 12px 14px;
+    border-width: 1px;
+    border-radius: 6px;
+    border-color: var(--cb-hairline-strong);
+    background-color: rgba(255, 255, 255, 0.025);
+}
+
+.cookbook-action__mark {
+    width: 16px;
+    height: 16px;
+    margin-right: 12px;
+    flex-shrink: 0;
+    border-width: 1.5px;
+    border-radius: 8px;
+    border-color: rgba(255, 255, 255, 0.28);
+    -unity-text-align: middle-center;
+    font-size: 10px;
+    color: #ffffff;
+}
+
+.cookbook-action__words {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.cookbook-action__name {
+    color: var(--fr-text);
+    font-size: 13px;
+    white-space: normal;
+    -unity-font-definition: resource("Fonts/Inter/Inter-SemiBold.ttf");
+}
+
+.cookbook-action__description {
+    margin-top: 2px;
+    color: var(--fr-muted);
+    font-size: 12px;
+    white-space: normal;
+}
+
+.cookbook-action__status {
+    margin-top: 4px;
+    color: #4cb782;
+    font-size: 12px;
+    white-space: normal;
+}
+
+.cookbook-action__status--link {
+    cursor: link;
+}
+
+.cookbook-action__run {
+    height: 28px;
+    margin: 0 0 0 12px;
+    padding: 0 14px;
+    flex-shrink: 0;
+    border-width: 0;
+    border-radius: 5px;
+    background-color: var(--fr-accent);
+    color: #ffffff;
+    font-size: 12px;
+    -unity-font-definition: resource("Fonts/Inter/Inter-SemiBold.ttf");
+}
+
+.cookbook-action__run:hover {
+    background-color: #6c78de;
+}
+
+.cookbook-action__run:active {
+    background-color: #5059bd;
+}
+
+.cookbook-action--done .cookbook-action__mark {
+    border-color: #4cb782;
+    background-color: #4cb782;
+}
+
+.cookbook-action--done .cookbook-action__run {
+    border-width: 1px;
+    border-color: var(--cb-hairline-strong);
+    background-color: rgba(255, 255, 255, 0.04);
+    color: var(--fr-text);
+}
+
+.cookbook-action--done .cookbook-action__run:hover {
+    background-color: var(--cb-selected);
+}
+
+.cookbook-action--failed .cookbook-action__mark {
+    border-color: var(--fr-danger);
+    background-color: var(--fr-danger);
+}
+
+.cookbook-action--failed .cookbook-action__status {
+    color: #eb8a8a;
+}
+
+.cookbook-action--missing .cookbook-action__mark {
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.cookbook-action--missing .cookbook-action__name {
+    color: var(--fr-muted);
+}
+
+.cookbook-list__content > .cookbook-action {
+    margin-top: 6px;
+}
+
+/* ---------------------------------------------------------------- Search results */
+
+.cookbook-results {
+    width: 100%;
+    max-width: var(--cb-reading-width);
+    border-width: 1px;
+    border-radius: 6px;
+    border-color: var(--cb-hairline);
+    overflow: hidden;
+}
+
+.cookbook-results__heading {
+    padding: 10px 14px;
+    border-bottom-width: 1px;
+    border-color: var(--cb-hairline);
+    background-color: rgba(255, 255, 255, 0.02);
+    color: var(--fr-label);
+    font-size: 12px;
+}
+
+.cookbook-results__item {
+    padding: 10px 14px;
+    border-bottom-width: 1px;
+    border-color: var(--cb-hairline);
+    cursor: link;
+}
+
+.cookbook-results__item:hover {
+    background-color: var(--cb-hover);
+}
+
+.cookbook-results__head {
+    flex-direction: row;
+    align-items: center;
+}
+
+.cookbook-results__icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 10px;
+    opacity: 0.75;
+}
+
+.cookbook-results__title {
+    color: var(--fr-text);
+    font-size: 13px;
+    -unity-font-definition: resource("Fonts/Inter/Inter-SemiBold.ttf");
+}
+
+.cookbook-results__trail {
+    margin-left: 10px;
+    color: var(--fr-muted);
+    font-size: 12px;
+}
+
+.cookbook-results__tags {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 6px 0 0 24px;
+}
+
+.cookbook-results__tags > .cookbook-chip {
+    height: 20px;
+    margin-bottom: 0;
+}
+
+.cookbook-results__snippet {
+    margin: 4px 0 0 24px;
+    white-space: normal;
+    color: var(--fr-muted);
+    font-size: 12px;
+}
+
+/* ---------------------------------------------------------------- Editor */
+
+.cookbook-editor {
+    flex-grow: 1;
+    padding: 12px 14px 0 14px;
+}
+
+.cookbook-editor .unity-base-field__label {
+    min-width: 60px;
+    width: 60px;
+    color: var(--fr-muted);
+}
+
+.cookbook-editor__title .unity-base-text-field__input {
+    height: 30px;
+    padding: 0 8px;
+    border-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 18px;
+    -unity-font-definition: resource("Fonts/Inter/Inter-SemiBold.ttf");
+}
+
+.cookbook-editor__title .unity-base-text-field__input:hover {
+    border-color: var(--cb-hairline-strong);
+}
+
+.cookbook-editor__banner {
+    flex-direction: row;
+    align-items: center;
+}
+
+.cookbook-editor__banner > TextField {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.cookbook-editor__toolbar {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 10px 0 10px 3px;
+}
+
+.cookbook-editor__button {
+    height: 26px;
+    margin: 0 6px 0 0;
+    padding: 0 10px;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: var(--cb-hairline-strong);
+    background-color: rgba(255, 255, 255, 0.03);
+    color: var(--fr-text);
+    font-size: 12px;
+}
+
+.cookbook-editor__button:hover {
+    background-color: var(--cb-selected);
+}
+
+.cookbook-editor__picker {
+    flex-shrink: 0;
+}
+
+.cookbook-editor__button-moment {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 6px;
+    bottom: 0;
+}
+
+.cookbook-editor__button--primary {
+    border-color: var(--fr-accent);
+    background-color: var(--fr-accent);
+    color: #ffffff;
+    -unity-font-definition: resource("Fonts/Inter/Inter-SemiBold.ttf");
+}
+
+.cookbook-editor__button--primary:hover {
+    background-color: #6c78de;
+}
+
+.cookbook-editor__spacer {
+    flex-grow: 1;
+}
+
+.cookbook-editor__status {
+    margin-right: 10px;
+    color: var(--fr-muted);
+    font-size: 12px;
+}
+
+.cookbook-editor__status--dirty {
+    color: #f2c94c;
+}
+
+.cookbook-editor__split {
+    flex-grow: 1;
+    border-top-width: 1px;
+    border-color: var(--cb-hairline);
+}
+
+.cookbook-editor__body {
+    flex-grow: 1;
+    margin: 0;
+}
+
+.cookbook-editor__body > .unity-base-text-field__input {
+    flex-grow: 1;
+    padding: 14px 16px;
+    border-width: 0;
+    border-radius: 0;
+    background-color: var(--cb-code);
+    white-space: normal;
+    -unity-text-align: upper-left;
+    font-size: 12px;
+    -unity-font-definition: resource("Fonts/RobotoMono/RobotoMono-Regular SDF.asset");
+}
+
+.cookbook-editor__preview {
+    flex-grow: 1;
+}
+
+.cookbook-editor__preview-content {
+    padding: 18px 22px 30px 22px;
+}
+
+/* ---------------------------------------------------------------- Tag editor */
+
+.cookbook-tag-editor {
+    flex-direction: row;
+    align-items: flex-start;
+    margin: 4px 3px 2px 3px;
+}
+
+.cookbook-tag-editor__label {
+    width: 60px;
+    min-width: 60px;
+    padding-top: 5px;
+    padding-left: 1px;
+    color: var(--fr-muted);
+}
+
+.cookbook-tag-editor__box {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.cookbook-tag-editor__chips {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    min-height: 30px;
+    padding: 3px 4px 0 5px;
+    border-width: 1px;
+    border-radius: 6px;
+    border-color: var(--cb-hairline-strong);
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.cookbook-tag-editor__chips > .cookbook-chip {
+    margin-bottom: 3px;
+}
+
+.cookbook-tag-editor__entry {
+    flex-grow: 1;
+    min-width: 120px;
+    margin: 0 0 3px 0;
+}
+
+.cookbook-tag-editor__entry > .unity-base-text-field__input {
+    border-width: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.cookbook-tag-editor__suggestions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 6px;
+}
+
+/* ---------------------------------------------------------------- Name prompt */
+
+.cookbook-prompt {
+    padding: 8px 10px;
+    border-width: 1px;
+    border-color: var(--cb-hairline-strong);
+    background-color: var(--fr-card);
+}
+
+.cookbook-prompt > Label {
+    margin: 0 0 4px 3px;
+    color: var(--fr-muted);
+    font-size: 11px;
+}
+
+/* ---------------------------------------------------------------- Toolbar extras */
+
+.cookbook__follow {
+    font-size: 12px;
+}
+
+.cookbook__follow--on {
+    background-color: var(--fr-accent-soft);
+    color: #c3c9ff;
+}
+
+.cookbook__follow--on:hover {
+    background-color: rgba(94, 106, 210, 0.28);
+    color: #ffffff;
+}
+
+.cookbook__sidebar-toggle {
+    height: 20px;
+    margin: 0 4px 0 0;
+    padding: 0 7px;
+    border-width: 0;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0);
+    color: var(--fr-muted);
+    font-size: 10px;
+}
+
+.cookbook__sidebar-toggle:hover {
+    background-color: var(--cb-selected);
+    color: var(--fr-text);
+}
+
+.cookbook__sidebar-toggle--off {
+    color: #6b6f77;
+    -unity-font-style: italic;
+}
+
+.cookbook-tree__row--project .cookbook-tree__title {
+    color: #8a8e96;
+}
+
+/* ---------------------------------------------------------------- Page extras */
+
+.cookbook-page__origin {
+    margin: 0 0 4px 8px;
+    color: var(--fr-muted);
+    font-size: 12px;
+    cursor: link;
+}
+
+.cookbook-page__origin:hover {
+    color: var(--fr-label);
+}
+
+.cookbook-page__origin--project {
+    color: #8c9bd8;
+}
+
+.cookbook-stale {
+    flex-direction: row;
+    align-items: center;
+    margin: 0 0 18px 0;
+    padding: 10px 12px;
+    border-width: 1px;
+    border-radius: 6px;
+    border-color: rgba(242, 201, 76, 0.28);
+    background-color: rgba(242, 201, 76, 0.06);
+}
+
+.cookbook-stale__dot {
+    width: 8px;
+    height: 8px;
+    margin-right: 12px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    background-color: #f2c94c;
+}
+
+.cookbook-stale__words {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.cookbook-stale__title {
+    color: var(--fr-text);
+    font-size: 13px;
+    -unity-font-definition: resource("Fonts/Inter/Inter-SemiBold.ttf");
+}
+
+.cookbook-stale__detail {
+    margin-top: 2px;
+    color: var(--fr-label);
+    font-size: 12px;
+    white-space: normal;
+}
+
+.cookbook-stale__button {
+    height: 26px;
+    margin: 0 0 0 8px;
+    padding: 0 10px;
+    flex-shrink: 0;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: var(--cb-hairline-strong);
+    background-color: rgba(255, 255, 255, 0.04);
+    color: var(--fr-text);
+    font-size: 12px;
+}
+
+.cookbook-stale__button:hover {
+    background-color: var(--cb-selected);
+}
+
+.cookbook-progress {
+    margin: 0 0 20px 0;
+    padding: 12px 14px;
+    border-width: 1px;
+    border-radius: 6px;
+    border-color: var(--cb-hairline);
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.cookbook-progress__head {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.cookbook-progress__words {
+    flex-grow: 1;
+    color: var(--fr-text);
+    font-size: 12px;
+    -unity-font-definition: resource("Fonts/Inter/Inter-SemiBold.ttf");
+}
+
+.cookbook-progress__reset {
+    height: 20px;
+    margin: 0;
+    padding: 0 8px;
+    border-width: 0;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0);
+    color: var(--fr-muted);
+    font-size: 11px;
+}
+
+.cookbook-progress__reset:hover {
+    background-color: var(--cb-selected);
+    color: var(--fr-text);
+}
+
+.cookbook-progress__track {
+    height: 6px;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.07);
+    overflow: hidden;
+}
+
+.cookbook-progress__fill {
+    height: 100%;
+    border-radius: 3px;
+    background-color: var(--fr-accent);
+    transition-property: width;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-out-cubic;
+}
+
+.cookbook-progress--complete .cookbook-progress__fill {
+    background-color: #4cb782;
+}
+
+.cookbook-connections {
+    margin-top: 36px;
+    padding-top: 20px;
+    border-top-width: 1px;
+    border-color: var(--cb-hairline);
+}
+
+.cookbook-connections__head {
+    flex-direction: row;
+    align-items: center;
+    margin: 14px 0 8px 2px;
+}
+
+.cookbook-connections__head > #title {
+    color: var(--fr-label);
+    font-size: 12px;
+    -unity-font-definition: resource("Fonts/Inter/Inter-SemiBold.ttf");
+}
+
+.cookbook-connections__head > #count {
+    margin-left: 8px;
+    color: var(--fr-muted);
+    font-size: 12px;
+}
+
+.cookbook-row--complete .cookbook-row__trailing {
+    color: #4cb782;
+}
+
+/* ---------------------------------------------------------------- Guide checks */
+
+.cookbook-action--check .cookbook-action__mark {
+    border-radius: 4px;
+}
+
+.cookbook-action--check.cookbook-action--failed .cookbook-action__mark {
+    border-color: rgba(242, 201, 76, 0.7);
+    background-color: rgba(0, 0, 0, 0);
+    color: #f2c94c;
+}
+
+.cookbook-action--check.cookbook-action--failed .cookbook-action__status {
+    color: #d8b85a;
+}
+
+.cookbook-action--check .cookbook-action__run {
+    border-width: 1px;
+    border-color: var(--cb-hairline-strong);
+    background-color: rgba(255, 255, 255, 0.04);
+    color: var(--fr-text);
+}
+
+.cookbook-action--check .cookbook-action__run:hover {
+    background-color: var(--cb-selected);
+}
+
+/* ---------------------------------------------------------------- Live assets */
+
+.cookbook-asset {
+    margin: 4px 0 16px 0;
+    border-width: 1px;
+    border-radius: 6px;
+    border-color: var(--cb-hairline-strong);
+    background-color: rgba(255, 255, 255, 0.02);
+    overflow: hidden;
+}
+
+.cookbook-asset__header {
+    flex-direction: row;
+    align-items: center;
+    height: 36px;
+    padding: 0 8px 0 12px;
+    border-bottom-width: 1px;
+    border-color: var(--cb-hairline);
+}
+
+.cookbook-asset__icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+}
+
+.cookbook-asset__name {
+    color: var(--fr-text);
+    font-size: 13px;
+    -unity-font-definition: resource("Fonts/Inter/Inter-SemiBold.ttf");
+}
+
+.cookbook-asset__type {
+    flex-grow: 1;
+    margin-left: 10px;
+    color: var(--fr-muted);
+    font-size: 12px;
+}
+
+.cookbook-asset__button {
+    height: 24px;
+    margin: 0 0 0 4px;
+    padding: 0 10px;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: var(--cb-hairline-strong);
+    background-color: rgba(255, 255, 255, 0.04);
+    color: var(--fr-text);
+    font-size: 12px;
+}
+
+.cookbook-asset__button:hover {
+    background-color: var(--cb-selected);
+}
+
+.cookbook-asset__body {
+    padding: 8px 4px 8px 0;
+}
+
+.cookbook-asset__preview {
+    height: 200px;
+    margin: 8px;
+}
+
+.cookbook-asset__missing {
+    padding: 10px 12px;
+    color: var(--fr-muted);
+}
+
+/* ---------------------------------------------------------------- Health */
+
+.cookbook-health {
+    width: 100%;
+    max-width: var(--cb-reading-width);
+}
+
+.cookbook-health__title {
+    margin: 4px 0 6px 0;
+    color: var(--fr-text);
+    font-size: 24px;
+    letter-spacing: -0.4px;
+    -unity-font-definition: resource("Fonts/Inter/Inter-SemiBold.ttf");
+}
+
+.cookbook-health__summary {
+    margin-bottom: 20px;
+    color: var(--fr-label);
+    font-size: 14px;
+    white-space: normal;
+}
+
+.cookbook-health__head {
+    flex-direction: row;
+    align-items: flex-end;
+    margin: 22px 0 10px 2px;
+}
+
+.cookbook-health__head-words {
+    flex-grow: 1;
+}
+
+.cookbook-health__head-line {
+    flex-direction: row;
+    align-items: center;
+}
+
+.cookbook-health__heading {
+    color: var(--fr-text);
+    font-size: 13px;
+    -unity-font-definition: resource("Fonts/Inter/Inter-SemiBold.ttf");
+}
+
+.cookbook-health__count {
+    margin-left: 8px;
+    color: var(--fr-muted);
+    font-size: 12px;
+}
+
+.cookbook-health__about {
+    margin-top: 2px;
+    color: var(--fr-muted);
+    font-size: 12px;
+}
+
+.cookbook-health__button {
+    height: 24px;
+    margin: 0;
+    padding: 0 10px;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: var(--cb-hairline-strong);
+    background-color: rgba(255, 255, 255, 0.04);
+    color: var(--fr-text);
+    font-size: 12px;
+}
+
+.cookbook-health__button:hover {
+    background-color: var(--cb-selected);
+}
+
+.cookbook-health__empty {
+    color: var(--fr-muted);
+}
+
+.cookbook-health__dot {
+    width: 8px;
+    height: 8px;
+    margin: 0 16px 0 4px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    background-color: var(--fr-muted);
+}
+
+.cookbook-health__kind--stale {
+    background-color: #f2c94c;
+}
+
+.cookbook-health__kind--link {
+    background-color: var(--fr-danger);
+}
+
+.cookbook-health__kind--picture {
+    background-color: #f2994a;
+}
+
+.cookbook-health__kind--step {
+    background-color: #bb87fc;
+}
+
+.cookbook-health__kind--unused {
+    background-color: #95a2b3;
+}
+
+.cookbook-health__kind--good {
+    background-color: #4cb782;
+}
+
+/* ---------------------------------------------------------------- Selection */
+
+.cookbook-selection {
+    width: 100%;
+    max-width: var(--cb-reading-width);
+}
+
+.cookbook-selection__head {
+    flex-direction: row;
+    align-items: center;
+    margin: 4px 0 18px 0;
+}
+
+.cookbook-selection__icon {
+    width: 22px;
+    height: 22px;
+    margin-right: 10px;
+}
+
+.cookbook-selection__title {
+    color: var(--fr-text);
+    font-size: 22px;
+    letter-spacing: -0.3px;
+    -unity-font-definition: resource("Fonts/Inter/Inter-SemiBold.ttf");
+}
+
+.cookbook-selection__type {
+    margin: 4px 0 0 10px;
+    color: var(--fr-muted);
+    font-size: 12px;
+}
+
+.cookbook-selection__empty {
+    margin-bottom: 14px;
+    color: var(--fr-label);
+    font-size: 14px;
+    white-space: normal;
+}
+
+.cookbook-selection__write {
+    align-self: flex-start;
+    height: 28px;
+    margin: 0;
+    padding: 0 14px;
+    border-width: 0;
+    border-radius: 5px;
+    background-color: var(--fr-accent);
+    color: #ffffff;
+    font-size: 12px;
+    -unity-font-definition: resource("Fonts/Inter/Inter-SemiBold.ttf");
+}
+
+.cookbook-selection__write:hover {
+    background-color: #6c78de;
+}
+
+/* ---------------------------------------------------------------- Quick open */
+
+.cookbook-quick {
+    padding: 6px;
+    border-width: 1px;
+    border-color: var(--cb-hairline-strong);
+    background-color: #141518;
+}
+
+.cookbook-quick__field {
+    margin: 0 0 6px 0;
+}
+
+.cookbook-quick__field > .unity-base-text-field__input {
+    height: 34px;
+    padding: 0 12px;
+    border-width: 0;
+    border-bottom-width: 1px;
+    border-radius: 0;
+    border-color: var(--cb-hairline);
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 15px;
+}
+
+.cookbook-quick__list {
+    flex-grow: 1;
+}
+
+.cookbook-quick__list #none {
+    margin: 10px 12px;
+    color: var(--fr-muted);
+}
+
+.cookbook-quick__row {
+    height: 34px;
+    border-bottom-width: 0;
+    border-radius: 5px;
+}
+
+.cookbook-quick__row--highlighted {
+    background-color: var(--cb-selected);
+}
+
+/* ---------------------------------------------------------------- On this page */
+
+.cookbook-toc {
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    width: 190px;
+}
+
+.cookbook-toc > #title {
+    margin: 0 0 8px 10px;
+    color: var(--fr-muted);
+    font-size: 11px;
+    -unity-font-definition: resource("Fonts/Inter/Inter-SemiBold.ttf");
+}
+
+.cookbook-toc__link {
+    padding: 4px 8px 4px 10px;
+    border-left-width: 1px;
+    border-color: var(--cb-hairline);
+    color: var(--fr-muted);
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: link;
+}
+
+.cookbook-toc__link:hover {
+    color: var(--fr-text);
+}
+
+.cookbook-toc__link--3 {
+    padding-left: 22px;
+}
+
+.cookbook-toc__link--current {
+    border-color: var(--fr-accent);
+    color: var(--fr-text);
+}
+
+/* ---------------------------------------------------------------- Recording */
+
+.cookbook-editor__button--recording {
+    border-color: rgba(235, 87, 87, 0.6);
+    background-color: rgba(235, 87, 87, 0.14);
+    color: #ffb4b4;
+}
+
+/* ---------------------------------------------------------------- Code Reference */
+
+.cookbook-facts {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.cookbook-facts__fact {
+    height: 22px;
+    margin: 0 4px 4px 0;
+    padding: 0 8px;
+    border-width: 1px;
+    border-radius: 11px;
+    border-color: var(--cb-hairline-strong);
+    background-color: rgba(255, 255, 255, 0.02);
+    color: var(--fr-label);
+    font-size: 12px;
+    -unity-text-align: middle-left;
+}
+
+.cookbook-facts__fact--link {
+    cursor: link;
+}
+
+.cookbook-facts__fact--link:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--cb-hover);
+    color: var(--fr-text);
+}
+
+.cookbook-facts__kind {
+    border-color: rgba(94, 106, 210, 0.45);
+    background-color: rgba(94, 106, 210, 0.16);
+    color: #b9c0f5;
+    -unity-font-definition: resource("Fonts/Inter/Inter-SemiBold.ttf");
+}
+
+.cookbook-facts__namespace,
+.cookbook-facts__script {
+    -unity-font-definition: resource("Fonts/RobotoMono/RobotoMono-Regular SDF.asset");
+    font-size: 11px;
+}
+
+.cookbook-facts__script {
+    border-width: 0;
+    background-color: rgba(0, 0, 0, 0);
+    color: var(--fr-muted);
+}
+
+.cookbook-code--signature {
+    margin: 0 0 10px 0;
+    border-radius: 5px;
+}
+
+.cookbook-code--signature .cookbook-code__lines {
+    padding: 8px 12px;
+}
+
+.cookbook-code--signature .cookbook-code__text {
+    white-space: normal;
+}
+
+.cookbook-sources {
+    margin: 8px 0 24px 0;
+}
+
+.cookbook-sources__head {
+    margin-bottom: 10px;
+}
+
+.cookbook-sources__heading {
+    color: var(--fr-text);
+    font-size: 15px;
+    -unity-font-definition: resource("Fonts/Inter/Inter-SemiBold.ttf");
+}
+
+.cookbook-sources__about {
+    margin-top: 2px;
+    color: var(--fr-muted);
+    white-space: normal;
+}
+
+.cookbook-sources__row {
+    flex-direction: row;
+    align-items: center;
+    min-height: 46px;
+    padding: 6px 10px 6px 12px;
+    border-bottom-width: 1px;
+    border-color: var(--cb-hairline);
+}
+
+.cookbook-sources__row--off {
+    opacity: 0.55;
+}
+
+.cookbook-sources__icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.cookbook-sources__words {
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 0;
+}
+
+.cookbook-sources__title {
+    color: var(--fr-text);
+    -unity-font-definition: resource("Fonts/Inter/Inter-SemiBold.ttf");
+}
+
+.cookbook-sources__path {
+    color: var(--fr-muted);
+    font-size: 11px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cookbook-sources__count {
+    margin: 0 10px;
+    color: var(--fr-label);
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+.cookbook-sources__button {
+    height: 24px;
+    margin: 0 0 0 6px;
+    padding: 0 10px;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: var(--cb-hairline-strong);
+    background-color: rgba(255, 255, 255, 0.02);
+    color: var(--fr-label);
+    flex-shrink: 0;
+}
+
+.cookbook-sources__button:hover {
+    background-color: var(--cb-selected);
+    color: var(--fr-text);
+}
+
+.cookbook-sources__add {
+    margin-top: 12px;
+    padding: 12px;
+    border-width: 1px;
+    border-radius: 6px;
+    border-color: var(--cb-hairline-strong);
+    background-color: rgba(255, 255, 255, 0.015);
+}
+
+.cookbook-sources__add-label {
+    margin-bottom: 6px;
+    color: var(--fr-label);
+}
+
+.cookbook-sources__field {
+    margin: 0;
+}
+
+.cookbook-sources__message {
+    margin-top: 8px;
+    color: #f2c94c;
+    white-space: normal;
+}
+
+.cookbook-results__head-row {
+    flex-direction: row;
+    align-items: center;
+    border-bottom-width: 1px;
+    border-color: var(--cb-hairline);
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.cookbook-results__head-row > .cookbook-results__heading {
+    flex-grow: 1;
+    border-bottom-width: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.cookbook-results__code {
+    height: 22px;
+    margin: 0 10px 0 0;
+    padding: 0 9px;
+    border-width: 1px;
+    border-radius: 11px;
+    border-color: rgba(94, 106, 210, 0.45);
+    background-color: rgba(94, 106, 210, 0.16);
+    color: #b9c0f5;
+    font-size: 11px;
+}
+
+.cookbook-results__code--off {
+    border-color: var(--cb-hairline-strong);
+    background-color: rgba(0, 0, 0, 0);
+    color: var(--fr-muted);
+}
+
+.cookbook-health__kind--note {
+    background-color: #c98fd6;
+}

@@ -1,0 +1,39 @@
+# A Unity package: only the package's own files belong here.
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+*.log
+
+# Editor and IDE leftovers
+.vs/
+.idea/
+.consulo/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.tmp
+
+# Crash reports and captures
+sysinfo.txt
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+
+# Packages built for sharing
+*.unitypackage
+*.unitypackage.meta
+
+.DS_Store
