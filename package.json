@@ -2,14 +2,33 @@
   "name": "com.cookiejartools.cookbook",
   "version": "0.1.0",
   "displayName": "Cookbook",
-  "description": "In-editor documentation: Markdown pages in folders, with images, search, and links from code.",
+  "description": "In-editor documentation: Markdown pages in folders, with images, search, step-by-step guides, and links from code.",
   "unity": "6000.0",
   "license": "MIT",
+  "author": {
+    "name": "CookieJarTools",
+    "url": "https://github.com/CookieJarTools"
+  },
+  "keywords": [
+    "documentation",
+    "markdown",
+    "editor"
+  ],
   "dependencies": {
     "com.cookiejartools.frosting": "0.1.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/CookieJarTools/Cookbook"
-  }
+  },
+  "documentationUrl": "https://github.com/CookieJarTools/Cookbook#readme",
+  "changelogUrl": "https://github.com/CookieJarTools/Cookbook/blob/main/CHANGELOG.md",
+  "licensesUrl": "https://github.com/CookieJarTools/Cookbook/blob/main/LICENSE.md",
+  "samples": [
+    {
+      "displayName": "Example Pages",
+      "description": "A documented component and a recipe asset, to see how pages link to code.",
+      "path": "Samples~/Example Pages"
+    }
+  ]
 }
