@@ -11,7 +11,7 @@ namespace CookieJarTools.Cookbook.Editor.Reference
     /// is the script its type is written in, so showing the file, its date and who last changed it
     /// all go to the script.
     /// <para>
-    /// Pictures put in a note are kept with the notes, in the Cookbook's own folder: anything under
+    /// Pictures put in a note are kept with the notes, in the CookBook's own folder: anything under
     /// <c>.code-notes/</c> is read and written there.
     /// </para>
     /// <para>
@@ -26,7 +26,7 @@ namespace CookieJarTools.Cookbook.Editor.Reference
         private readonly Dictionary<string, string> scripts = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         private readonly IDocSource notes;
 
-        /// <param name="notes">The Cookbook's own folder, where notes and their pictures are kept.</param>
+        /// <param name="notes">The CookBook's own folder, where notes and their pictures are kept.</param>
         public CodeSource(IDocSource notes)
         {
             this.notes = notes;

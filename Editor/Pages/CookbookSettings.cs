@@ -8,7 +8,7 @@ using UnityEngine;
 namespace CookieJarTools.Cookbook.Editor.Pages
 {
     /// <summary>
-    /// Where the Cookbook's pages are kept, relative to the project folder, and the code chosen for
+    /// Where the CookBook's pages are kept, relative to the project folder, and the code chosen for
     /// its Code Reference. Saved with the project, so the team shares it.
     /// </summary>
     [FilePath("ProjectSettings/CookbookSettings.asset", FilePathAttribute.Location.ProjectFolder)]

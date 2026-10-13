@@ -4,7 +4,7 @@ using Markdig.Syntax;
 namespace CookieJarTools.Cookbook.Editor.Markdown
 {
     /// <summary>
-    /// The Markdown the Cookbook reads: CommonMark, plus tables, checklists, bare links,
+    /// The Markdown the CookBook reads: CommonMark, plus tables, checklists, bare links,
     /// strikethrough and highlights, GitHub-style callouts (<c>&gt; [!NOTE]</c>), heading anchors,
     /// and <c>[[Page]]</c> links.
     /// </summary>

@@ -10,7 +10,7 @@ namespace CookieJarTools.Cookbook.Editor.Index
     /// <summary>
     /// Who last changed a file and when, from git — asked in the background, since git can take a
     /// moment, and remembered until the file changes again. Nothing comes back when the file is
-    /// not in a git repository or git is not installed; the Cookbook just says nothing.
+    /// not in a git repository or git is not installed; the CookBook just says nothing.
     /// </summary>
     public static class GitInfo
     {

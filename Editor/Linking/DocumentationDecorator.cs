@@ -18,7 +18,7 @@ namespace CookieJarTools.Cookbook.Editor.Linking
         public override VisualElement CreatePropertyGUI()
         {
             var page = ((DocumentationAttribute)attribute).Page;
-            var link = new Button(() => CookbookWindow.OpenPage(page)) { text = Text, tooltip = "Open " + page + " in the Cookbook" };
+            var link = new Button(() => CookbookWindow.OpenPage(page)) { text = Text, tooltip = "Open " + page + " in the CookBook" };
             link.style.alignSelf = Align.FlexEnd;
             link.style.backgroundColor = Color.clear;
             link.style.borderTopWidth = link.style.borderBottomWidth = link.style.borderLeftWidth = link.style.borderRightWidth = 0f;

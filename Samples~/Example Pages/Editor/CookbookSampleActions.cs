@@ -4,9 +4,9 @@ using UnityEngine;
 namespace CookieJarTools.Cookbook.Samples.Editor
 {
     /// <summary>
-    /// Actions and a check for the Cookbook's step-by-step guide. One action lets the reader choose
+    /// Actions and a check for the CookBook's step-by-step guide. One action lets the reader choose
     /// where the new asset goes; the other puts it where the programmer decided. Both return what
-    /// they made, so the Cookbook selects it afterwards. The check says whether the starter recipe
+    /// they made, so the CookBook selects it afterwards. The check says whether the starter recipe
     /// is there yet.
     /// </summary>
     public static class CookbookSampleActions

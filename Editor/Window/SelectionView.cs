@@ -10,7 +10,7 @@ namespace CookieJarTools.Cookbook.Editor.Window
 {
     /// <summary>
     /// The pages about what is selected in the editor, kept up to date as the selection changes
-    /// while the Cookbook follows it. With nothing written yet, a button to start the page.
+    /// while the CookBook follows it. With nothing written yet, a button to start the page.
     /// </summary>
     public sealed class SelectionView : VisualElement
     {
@@ -61,7 +61,7 @@ namespace CookieJarTools.Cookbook.Editor.Window
 
         private void Nothing(Object target)
         {
-            Add(Classed(new Label("Nothing in the Cookbook about " + target.name + " yet."), Prefix + "__empty"));
+            Add(Classed(new Label("Nothing in the CookBook about " + target.name + " yet."), Prefix + "__empty"));
             var path = AssetDatabase.GetAssetPath(target);
             var write = new Button(() => WritePage?.Invoke(target.name, path)) { text = "Write a page about it" };
             write.AddToClassList(Prefix + "__write");

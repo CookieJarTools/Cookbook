@@ -1,7 +1,7 @@
 {
   "name": "com.cookiejartools.cookbook",
-  "version": "0.1.0",
-  "displayName": "Cookbook",
+  "version": "0.2.0",
+  "displayName": "CookBook",
   "description": "In-editor documentation: Markdown pages in folders, with images, search, step-by-step guides, and links from code.",
   "unity": "6000.0",
   "license": "PolyForm-Shield-1.0.0",

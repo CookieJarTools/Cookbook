@@ -10,7 +10,7 @@ using UnityEngine.UIElements;
 namespace CookieJarTools.Cookbook.Editor.Window
 {
     /// <summary>
-    /// Where the Cookbook opens: its name and what it is for, a search box, the tags to browse by,
+    /// Where the CookBook opens: its name and what it is for, a search box, the tags to browse by,
     /// then lists — the sections (top folders, and what was found in the project), the guides and
     /// how far through each you are, what changed lately, the loose pages, and how healthy the
     /// docs are. The top folder's own text, if it has any, is the line under the name.
@@ -107,7 +107,7 @@ namespace CookieJarTools.Cookbook.Editor.Window
         private VisualElement Header(DocLibrary library)
         {
             var header = Classed(new VisualElement(), Prefix + "__header");
-            header.Add(Classed(new Label("Cookbook"), Prefix + "__title"));
+            header.Add(Classed(new Label("CookBook"), Prefix + "__title"));
 
             var intro = library.Root.Body.Trim();
             if (intro.Length == 0)

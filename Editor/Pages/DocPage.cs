@@ -4,11 +4,11 @@ using CookieJarTools.Cookbook.Editor.Reference;
 namespace CookieJarTools.Cookbook.Editor.Pages
 {
     /// <summary>
-    /// A page or a folder in the Cookbook. A folder is a folder in the source; its banner and intro
+    /// A page or a folder in the CookBook. A folder is a folder in the source; its banner and intro
     /// come from a <c>_folder.md</c> inside it. A page is a <c>.md</c> file, titled by its file name
     /// unless its header gives a title.
     /// <para>
-    /// A page knows the source it came from: the Cookbook's own folder, the project, for
+    /// A page knows the source it came from: the CookBook's own folder, the project, for
     /// Markdown found among the assets, or the code, for the Code Reference's pages.
     /// </para>
     /// </summary>
@@ -37,7 +37,7 @@ namespace CookieJarTools.Cookbook.Editor.Pages
 
         public IDocSource Source { get; }
 
-        /// <summary>Found among the project's assets rather than in the Cookbook's own folder.</summary>
+        /// <summary>Found among the project's assets rather than in the CookBook's own folder.</summary>
         public bool IsProject => Source is ProjectSource;
 
         /// <summary>The folder holding everything found in the project.</summary>
@@ -65,7 +65,7 @@ namespace CookieJarTools.Cookbook.Editor.Pages
 
         public List<DocPage> Children { get; } = new List<DocPage>();
 
-        /// <summary>The Cookbook's own top folder — its home page.</summary>
+        /// <summary>The CookBook's own top folder — its home page.</summary>
         public bool IsRoot => IsFolder && Path.Length == 0 && !IsProject && !IsCode;
 
         /// <summary>The name of the file or folder, without the extension.</summary>
@@ -87,7 +87,7 @@ namespace CookieJarTools.Cookbook.Editor.Pages
         /// <summary>The file its header and Markdown are kept in.</summary>
         public string FilePath => IsFolder ? Join(Path, FolderFile) : Path;
 
-        /// <summary>Whether its words can be written in the Cookbook: not a project or code folder, which have none of their own. A Code Reference page's note can be.</summary>
+        /// <summary>Whether its words can be written in the CookBook: not a project or code folder, which have none of their own. A Code Reference page's note can be.</summary>
         public bool IsEditable => !((IsProject || IsCode) && IsFolder);
 
         /// <summary>The folder its images and relative links are found from — for the Code Reference, the notes' folder.</summary>

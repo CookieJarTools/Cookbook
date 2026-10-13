@@ -12,7 +12,7 @@ namespace CookieJarTools.Cookbook.Editor.Pages
     /// made and again whenever a source changes — pages are small, and it keeps search and links
     /// simple.
     /// <para>
-    /// Three sources: the Cookbook's own folder, whose tree is <see cref="Root"/>; Markdown found
+    /// Three sources: the CookBook's own folder, whose tree is <see cref="Root"/>; Markdown found
     /// among the project's assets, gathered under <see cref="ProjectRoot"/> in the project's own
     /// folders (tidied by <see cref="ProjectTree"/>); and the Code Reference under
     /// <see cref="CodeRoot"/>, made from the code chosen for it (see <see cref="CodeTree"/>). The
@@ -55,10 +55,10 @@ namespace CookieJarTools.Cookbook.Editor.Pages
             Reload();
         }
 
-        /// <summary>Anything in the library changed: re-read after an outside edit, or changed by the Cookbook.</summary>
+        /// <summary>Anything in the library changed: re-read after an outside edit, or changed by the CookBook.</summary>
         public event Action Reloaded;
 
-        /// <summary>The project's library, from the folder in the Cookbook settings and the project's own Markdown.</summary>
+        /// <summary>The project's library, from the folder in the CookBook settings and the project's own Markdown.</summary>
         public static DocLibrary Current
         {
             get
@@ -75,7 +75,7 @@ namespace CookieJarTools.Cookbook.Editor.Pages
             }
         }
 
-        /// <summary>The Cookbook's own folder.</summary>
+        /// <summary>The CookBook's own folder.</summary>
         public IDocSource Source { get; }
 
         /// <summary>Markdown among the project's assets.</summary>
@@ -122,7 +122,7 @@ namespace CookieJarTools.Cookbook.Editor.Pages
         /// <summary>Every page — not folders — that is being shown; the Code Reference's are not counted.</summary>
         public IEnumerable<DocPage> Pages => byReference.Values.Where(p => !p.IsFolder && Shown(p));
 
-        /// <summary>Everything shown, folders too: the Cookbook's own tree, then what was found in the project when that is shown.</summary>
+        /// <summary>Everything shown, folders too: the CookBook's own tree, then what was found in the project when that is shown.</summary>
         public IEnumerable<DocPage> Everything
         {
             get
@@ -255,7 +255,7 @@ namespace CookieJarTools.Cookbook.Editor.Pages
             return ReloadedAt(page, path);
         }
 
-        /// <summary>Out of the Cookbook, into the source's trash — a folder with everything in it.</summary>
+        /// <summary>Out of the CookBook, into the source's trash — a folder with everything in it.</summary>
         public void Remove(DocPage page)
         {
             if (page.IsRoot || page.IsProjectRoot || page.IsCode)

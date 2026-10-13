@@ -11,7 +11,7 @@ namespace CookieJarTools.Cookbook.Editor.Window
     /// <summary>
     /// Jump to a page by typing a few letters of its name — in order, not necessarily together:
     /// "stgd" finds "Step-by-Step Guides". Names that start with what was typed, or have it all
-    /// together, come first, and the Cookbook's own pages before those found in the project.
+    /// together, come first, and the CookBook's own pages before those found in the project.
     /// Arrow keys and Enter, or click; Escape to close.
     /// </summary>
     public sealed class QuickOpen : EditorWindow

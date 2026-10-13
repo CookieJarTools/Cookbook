@@ -8,8 +8,8 @@ namespace CookieJarTools.Cookbook.Editor.Reference
     /// <summary>Right-click an assembly definition, folder or script in the Project window to put it in the Code Reference, or take it out.</summary>
     public static class CodeReferenceMenu
     {
-        private const string AddItem = "Assets/Cookbook/Add to Code Reference";
-        private const string RemoveItem = "Assets/Cookbook/Remove from Code Reference";
+        private const string AddItem = "Assets/CookBook/Add to Code Reference";
+        private const string RemoveItem = "Assets/CookBook/Remove from Code Reference";
 
         [MenuItem(AddItem, false, 2000)]
         private static void Add()

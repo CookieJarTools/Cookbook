@@ -105,7 +105,7 @@ namespace CookieJarTools.Cookbook.Editor.Window
 
         private static void Remove(CodeSourceEntry entry)
         {
-            if (EditorUtility.DisplayDialog("Cookbook", "Take “" + CodeScope.Title(entry.Path) + "” out of the Code Reference?\n\nNotes written for its types are kept, and come back if it is added again.", "Remove", "Cancel"))
+            if (EditorUtility.DisplayDialog("CookBook", "Take “" + CodeScope.Title(entry.Path) + "” out of the Code Reference?\n\nNotes written for its types are kept, and come back if it is added again.", "Remove", "Cancel"))
             {
                 CookbookSettings.instance.RemoveCodeSource(entry);
             }

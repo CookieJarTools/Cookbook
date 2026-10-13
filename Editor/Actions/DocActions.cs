@@ -108,7 +108,7 @@ namespace CookieJarTools.Cookbook.Editor.Actions
             var usable = method.IsStatic && (parameters.Length == 0 || (parameters.Length == 1 && parameters[0].ParameterType == typeof(string)));
             if (!usable)
             {
-                Debug.LogWarning($"Cookbook: [CookbookAction] on {method.DeclaringType?.Name}.{method.Name} is ignored — it must be static, and take nothing or one string path.");
+                Debug.LogWarning($"CookBook: [CookbookAction] on {method.DeclaringType?.Name}.{method.Name} is ignored — it must be static, and take nothing or one string path.");
             }
 
             return usable;

@@ -15,7 +15,7 @@ using Object = UnityEngine.Object;
 namespace CookieJarTools.Cookbook.Editor.Window
 {
     /// <summary>
-    /// The Cookbook: the page tree down the side, the page to the right. Back and forward, the
+    /// The CookBook: the page tree down the side, the page to the right. Back and forward, the
     /// folders the page is in along the top, a search box, and Edit to write the page.
     /// <para>
     /// Leaving a page being written saves it. Writing not yet saved is kept through script reloads.
@@ -71,11 +71,11 @@ namespace CookieJarTools.Cookbook.Editor.Window
             }
         }
 
-        [MenuItem("Window/CookieJarTools/Cookbook")]
+        [MenuItem("Window/CookieJarTools/CookBook")]
         public static CookbookWindow ShowWindow()
         {
             var window = GetWindow<CookbookWindow>();
-            window.titleContent = new GUIContent("Cookbook", EditorGUIUtility.IconContent("TextAsset Icon").image);
+            window.titleContent = new GUIContent("CookBook", EditorGUIUtility.IconContent("TextAsset Icon").image);
             window.minSize = new Vector2(420f, 260f);
             return window;
         }
@@ -126,7 +126,7 @@ namespace CookieJarTools.Cookbook.Editor.Window
         {
             var folder = DocTree.FolderOf(Current, Library.Root);
             var name = reference.Contains("/") ? reference.Substring(reference.LastIndexOf('/') + 1) : reference;
-            if (!EditorUtility.DisplayDialog("Cookbook", "There is no page called “" + reference + "” yet.\n\nWrite it now, in " + (folder.IsRoot ? "the top folder" : folder.Title) + "?", "Write it", "Not now"))
+            if (!EditorUtility.DisplayDialog("CookBook", "There is no page called “" + reference + "” yet.\n\nWrite it now, in " + (folder.IsRoot ? "the top folder" : folder.Title) + "?", "Write it", "Not now"))
             {
                 return;
             }
@@ -180,7 +180,7 @@ namespace CookieJarTools.Cookbook.Editor.Window
             RestoreEditing();
         }
 
-        [Shortcut("Cookbook/Go to Page", typeof(CookbookWindow), KeyCode.K, ShortcutModifiers.Action)]
+        [Shortcut("CookBook/Go to Page", typeof(CookbookWindow), KeyCode.K, ShortcutModifiers.Action)]
         private static void GoToPageShortcut(ShortcutArguments arguments)
         {
             (arguments.context as CookbookWindow)?.OpenQuickOpen();
@@ -208,7 +208,7 @@ namespace CookieJarTools.Cookbook.Editor.Window
         {
             var bar = new VisualElement();
             bar.AddToClassList(Prefix + "__toolbar");
-            var homeButton = ToolbarButton("Home", "Back to the Cookbook's home page", GoHome);
+            var homeButton = ToolbarButton("Home", "Back to the CookBook's home page", GoHome);
             homeButton.AddToClassList(Prefix + "__home");
             bar.Add(homeButton);
             backButton = ToolbarButton("‹", "Back", GoBack);
@@ -363,7 +363,7 @@ namespace CookieJarTools.Cookbook.Editor.Window
         private void ShowTrail(DocPage page)
         {
             trail.Clear();
-            trail.Add(TrailButton(Library.Root, "Cookbook"));
+            trail.Add(TrailButton(Library.Root, "CookBook"));
             foreach (var folder in page.Trail())
             {
                 trail.Add(TrailSeparator());
@@ -735,7 +735,7 @@ namespace CookieJarTools.Cookbook.Editor.Window
         private void Remove(DocPage page)
         {
             var what = page.IsFolder ? "the folder “" + page.Title + "” and everything in it" : "“" + page.Title + "”";
-            if (!EditorUtility.DisplayDialog("Cookbook", "Remove " + what + "?\n\nIt goes to the .trash folder inside the Cookbook's folder, so it can be got back.", "Remove", "Cancel"))
+            if (!EditorUtility.DisplayDialog("CookBook", "Remove " + what + "?\n\nIt goes to the .trash folder inside the CookBook's folder, so it can be got back.", "Remove", "Cancel"))
             {
                 return;
             }
@@ -761,7 +761,7 @@ namespace CookieJarTools.Cookbook.Editor.Window
             menu.ShowAsContext();
         }
 
-        /// <summary>Everything in the Cookbook that needs looking after, in place of the page.</summary>
+        /// <summary>Everything in the CookBook that needs looking after, in place of the page.</summary>
         public void ShowHealth()
         {
             FinishEditing();

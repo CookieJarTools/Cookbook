@@ -7,7 +7,7 @@ using CookieJarTools.Cookbook.Editor.Pages;
 namespace CookieJarTools.Cookbook.Editor.Reference
 {
     /// <summary>
-    /// Notes written for types in the Code Reference, kept in the Cookbook's own folder under
+    /// Notes written for types in the Code Reference, kept in the CookBook's own folder under
     /// <c>.code-notes</c> — hidden from its tree — one Markdown file per type, named by its key:
     /// <c>.code-notes/Ns.DocLibrary.md</c>. The page is made again from the code each time; the
     /// note is what lasts. Its header holds the page's tags.

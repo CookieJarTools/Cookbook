@@ -7,13 +7,13 @@ namespace CookieJarTools.Cookbook.Editor.Pages
     /// Where the pages are kept. Paths are relative to the source's root, with forward slashes:
     /// <c>"Combat/Damage.md"</c>, <c>"Combat/images/hit.png"</c>.
     /// <para>
-    /// The Cookbook only ever reads and writes through this, so a page can come from somewhere else
+    /// The CookBook only ever reads and writes through this, so a page can come from somewhere else
     /// — a wiki, a shared drive, a server — by adding another source; nothing else needs to change.
     /// </para>
     /// </summary>
     public interface IDocSource
     {
-        /// <summary>Something changed outside the Cookbook: pages edited, added or removed. Raised on the main thread.</summary>
+        /// <summary>Something changed outside the CookBook: pages edited, added or removed. Raised on the main thread.</summary>
         event Action Changed;
 
         string Name { get; }
@@ -36,7 +36,7 @@ namespace CookieJarTools.Cookbook.Editor.Pages
 
         void Move(string from, string to);
 
-        /// <summary>Takes a page or folder out of the Cookbook, somewhere it can still be got back from.</summary>
+        /// <summary>Takes a page or folder out of the CookBook, somewhere it can still be got back from.</summary>
         void Remove(string path);
 
         DateTime Modified(string path);

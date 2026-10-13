@@ -66,7 +66,7 @@ namespace CookieJarTools.Cookbook.Editor.Images
 
             Recording = false;
             EditorApplication.update -= Tick;
-            EditorUtility.DisplayProgressBar("Cookbook", "Making the clip…", 0.5f);
+            EditorUtility.DisplayProgressBar("CookBook", "Making the clip…", 0.5f);
             try
             {
                 Finished?.Invoke(frames.Count > 0 ? GifWriter.Write(frames, width, height, Mathf.RoundToInt(100f / FramesPerSecond)) : null);

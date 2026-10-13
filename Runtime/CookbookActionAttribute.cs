@@ -3,17 +3,17 @@ using System;
 namespace CookieJarTools.Cookbook
 {
     /// <summary>
-    /// Makes a static method something a Cookbook page can run with a button — a step in a guide
+    /// Makes a static method something a CookBook page can run with a button — a step in a guide
     /// that does the work for the reader: "make the enemy data", "set up the scene".
     /// <para>
-    /// The method can take no parameters, or one <c>string path</c>: then the Cookbook asks the
+    /// The method can take no parameters, or one <c>string path</c>: then the CookBook asks the
     /// reader where to save (starting at <see cref="DefaultFolder"/> with <see cref="DefaultName"/>)
     /// and passes the path chosen, relative to the project. Without it, the method decides where
     /// things go. Whatever it returns that is a Unity object is selected and shown afterwards.
     /// </para>
     /// <para>
     /// A page runs it with a link on its own line: <c>[Make the enemy data](action:enemy-data)</c>.
-    /// The Cookbook's editor has an Action… button that writes that for you.
+    /// The CookBook's editor has an Action… button that writes that for you.
     /// </para>
     /// </summary>
     [AttributeUsage(AttributeTargets.Method, Inherited = false)]

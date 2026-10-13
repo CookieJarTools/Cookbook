@@ -9,7 +9,7 @@ namespace CookieJarTools.Cookbook.Editor.Reference
     /// Arranges the Code Reference: a folder for each source, the namespaces inside it, a page for
     /// each type — only as deep as helps:
     /// <list type="bullet">
-    /// <item>A namespace holding nothing but one other is merged with it: <c>CookieJarTools.Cookbook.Editor</c>.</item>
+    /// <item>A namespace holding nothing but one other is merged with it: <c>CookieJarTools.CookBook.Editor</c>.</item>
     /// <item>A namespace holding just one type is replaced by the type's page.</item>
     /// <item>A type declared inside another goes under the other's page.</item>
     /// </list>
@@ -28,7 +28,7 @@ namespace CookieJarTools.Cookbook.Editor.Reference
         private readonly Func<DocPage, DocPage> index;
         private readonly Dictionary<Type, DocPage> pages = new Dictionary<Type, DocPage>();
 
-        /// <param name="notes">The Cookbook's own folder, where notes are kept.</param>
+        /// <param name="notes">The CookBook's own folder, where notes are kept.</param>
         /// <param name="index">Makes each page and folder findable by its id.</param>
         public CodeTree(CodeModel model, CodeSource source, IDocSource notes, Func<DocPage, DocPage> index)
         {

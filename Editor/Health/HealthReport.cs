@@ -9,7 +9,7 @@ using CookieJarTools.Cookbook.Editor.Reference;
 namespace CookieJarTools.Cookbook.Editor.Health
 {
     /// <summary>
-    /// What needs looking after in the Cookbook: pages whose code has changed since, links that go
+    /// What needs looking after in the CookBook: pages whose code has changed since, links that go
     /// nowhere, pictures that are missing, guide steps the project no longer has, and pictures kept
     /// with the pages that no page shows any more — and notes kept for types the code no longer has.
     /// <para>
@@ -42,7 +42,7 @@ namespace CookieJarTools.Cookbook.Editor.Health
 
         public List<PageLink> MissingSteps { get; }
 
-        /// <summary>Pictures in the Cookbook's own images folders that no page or banner shows.</summary>
+        /// <summary>Pictures in the CookBook's own images folders that no page or banner shows.</summary>
         public List<string> UnusedPictures { get; }
 
         /// <summary>Notes written for types that no longer exist — renamed, moved to another namespace, or removed.</summary>
@@ -79,7 +79,7 @@ namespace CookieJarTools.Cookbook.Editor.Health
         }
 
         /// <summary>
-        /// Only the Cookbook's own folder is looked through: pictures among the project's assets
+        /// Only the CookBook's own folder is looked through: pictures among the project's assets
         /// are likely used by the game, not the docs.
         /// </summary>
         private static List<string> Unused(DocLibrary library, List<PageLink> links)

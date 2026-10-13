@@ -2,7 +2,7 @@ using System;
 
 namespace CookieJarTools.Cookbook.Editor.Actions
 {
-    /// <summary>Something a page can run with a button: a method marked [CookbookAction], or one of the Cookbook's own.</summary>
+    /// <summary>Something a page can run with a button: a method marked [CookbookAction], or one of the CookBook's own.</summary>
     public sealed class DocAction
     {
         private readonly Func<ActionOutcome> run;

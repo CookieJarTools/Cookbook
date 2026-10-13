@@ -24,7 +24,7 @@ namespace CookieJarTools.Cookbook.Editor.Index
         /// <summary>The project asset it names — linked, or shown in the page — when it names one.</summary>
         public string Asset { get; set; }
 
-        /// <summary>The picture file it shows, from the Cookbook's folder, when it is a picture kept with the pages.</summary>
+        /// <summary>The picture file it shows, from the CookBook's folder, when it is a picture kept with the pages.</summary>
         public string Picture { get; set; }
 
         /// <summary>A guide step: an action or a check.</summary>

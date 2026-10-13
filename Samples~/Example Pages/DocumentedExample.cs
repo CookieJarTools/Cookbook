@@ -12,7 +12,7 @@ namespace CookieJarTools.Cookbook.Samples
     [Documentation("a4f08c3e91b2")]
     public sealed class DocumentedExample : MonoBehaviour
     {
-        [Documentation("Cookbook Guide/Writing Pages")]
+        [Documentation("CookBook Guide/Writing Pages")]
         [SerializeField] private int damage = 10;
 
         [SerializeField] private float speed = 4f;

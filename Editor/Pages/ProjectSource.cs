@@ -8,7 +8,7 @@ namespace CookieJarTools.Cookbook.Editor.Pages
 {
     /// <summary>
     /// Markdown files kept in the project itself — READMEs in <c>Assets</c>, docs that came with a
-    /// plugin or package — so the Cookbook can show them next to its own pages. Paths are the
+    /// plugin or package — so the CookBook can show them next to its own pages. Paths are the
     /// project's own: <c>"Assets/Plugins/Tool/README.md"</c>.
     /// <para>
     /// They are assets, so they are changed through the AssetDatabase — moved and renamed with

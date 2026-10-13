@@ -21,7 +21,7 @@ namespace CookieJarTools.Cookbook.Editor.Window
     public sealed class PageView : VisualElement
     {
         private const string Prefix = "cookbook-page";
-        private const string HomeTitle = "Cookbook";
+        private const string HomeTitle = "CookBook";
 
         private readonly IDocNavigator navigator;
 
@@ -154,13 +154,13 @@ namespace CookieJarTools.Cookbook.Editor.Window
             }
         }
 
-        /// <summary>Where the page is kept: the Cookbook's folder, or its place among the project's assets. Click to show the file.</summary>
+        /// <summary>Where the page is kept: the CookBook's folder, or its place among the project's assets. Click to show the file.</summary>
         private static Label Origin(DocPage page)
         {
             var where = page.IsProject ? page.FilePath : CookbookSettings.instance.Root + "/" + page.FilePath;
             var origin = BlockBuilder.Classed(new Label((page.IsProject ? "In the project · " : string.Empty) + where), Prefix + "__origin");
             origin.EnableInClassList(Prefix + "__origin--project", page.IsProject);
-            origin.tooltip = page.IsProject ? "Found among the project's assets — click to show it" : "Kept in the Cookbook's folder — click to show the file";
+            origin.tooltip = page.IsProject ? "Found among the project's assets — click to show it" : "Kept in the CookBook's folder — click to show the file";
             origin.RegisterCallback<ClickEvent>(_ => ShowFile(page));
             return origin;
         }

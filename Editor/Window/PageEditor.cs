@@ -255,7 +255,7 @@ namespace CookieJarTools.Cookbook.Editor.Window
         {
             if (bytes == null || Page == null)
             {
-                EditorUtility.DisplayDialog("Cookbook", "There was nothing to capture — open the Scene view, or add a camera.", "OK");
+                EditorUtility.DisplayDialog("CookBook", "There was nothing to capture — open the Scene view, or add a camera.", "OK");
                 return;
             }
 
@@ -317,7 +317,7 @@ namespace CookieJarTools.Cookbook.Editor.Window
             recorder.Finished += bytes => Recorded(scene, bytes);
             if (!recorder.Start())
             {
-                EditorUtility.DisplayDialog("Cookbook", "There is nothing to record — open the Scene view, or add a camera.", "OK");
+                EditorUtility.DisplayDialog("CookBook", "There is nothing to record — open the Scene view, or add a camera.", "OK");
                 return;
             }
 

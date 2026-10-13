@@ -56,7 +56,7 @@ namespace CookieJarTools.Cookbook.Editor.Linking
         {
             if (For(target != null ? target.GetType() : null) != null)
             {
-                badges.Add(ComponentPicker.IconBadge(Icon, "Has a page in the Cookbook"));
+                badges.Add(ComponentPicker.IconBadge(Icon, "Has a page in the CookBook"));
             }
         }
 

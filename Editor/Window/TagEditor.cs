@@ -52,7 +52,7 @@ namespace CookieJarTools.Cookbook.Editor.Window
 
         public IReadOnlyList<string> Tags => tags;
 
-        /// <param name="used">Every tag in the Cookbook, to offer while typing.</param>
+        /// <param name="used">Every tag in the CookBook, to offer while typing.</param>
         public void Show(IEnumerable<string> pageTags, IEnumerable<string> used)
         {
             known = used.ToList();

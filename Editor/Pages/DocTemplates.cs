@@ -7,7 +7,7 @@ namespace CookieJarTools.Cookbook.Editor.Pages
 {
     /// <summary>
     /// Pages to start from: How-to, Feature spec, Onboarding guide and Postmortem to begin with,
-    /// kept as Markdown in a hidden <c>.templates</c> folder inside the Cookbook's folder — change
+    /// kept as Markdown in a hidden <c>.templates</c> folder inside the CookBook's folder — change
     /// them, or add your own, and they are offered too. <c>{{title}}</c>, <c>{{date}}</c> and
     /// <c>{{author}}</c> are filled in when a page is made; tags in a template's header are given
     /// to the page.

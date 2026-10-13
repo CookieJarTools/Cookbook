@@ -1,10 +1,10 @@
 <p align="center">
-  <img src="Documentation~/hero.png" alt="Cookbook" width="1000">
+  <img src="Documentation~/hero.png" alt="CookBook" width="1000">
 </p>
 
 <h3 align="center">Documentation that lives in the editor, so the answer is where the work is.</h3>
 
-<p align="center">Open it from <b>Window &gt; CookieJarTools &gt; Cookbook</b></p>
+<p align="center">Open it from <b>Window &gt; CookieJarTools &gt; CookBook</b></p>
 
 ## Install
 
@@ -30,13 +30,13 @@ https://github.com/CookieJarTools/Cookbook.git
 
 Pages are plain markdown files in a `Docs` folder at the top of your project, next to `Assets`
 rather than inside it, so Unity never imports them and no build carries them. Write them in the
-Cookbook or in any editor you like. A saved file shows up straight away.
+CookBook or in any editor you like. A saved file shows up straight away.
 
 Because they are just files, they live in version control beside the code they describe, and a
 branch that changes how something works can change the page about it in the same commit.
 
 <p align="center">
-  <img src="Documentation~/home.png" alt="The Cookbook home page, with tags, sections and recently updated pages" width="1000">
+  <img src="Documentation~/home.png" alt="The CookBook home page, with tags, sections and recently updated pages" width="1000">
 </p>
 
 The front page counts what you have, groups it, and puts the pages you touched last within reach.
@@ -60,7 +60,7 @@ updated: 2026-10-11
 ---
 ```
 
-A page without them is fine. The Cookbook adds what it needs the first time it saves one.
+A page without them is fine. The CookBook adds what it needs the first time it saves one.
 
 ## Guides that do the work
 
@@ -93,7 +93,7 @@ place. **Ctrl+K** jumps straight to a page by name.
 
 ## The Code Reference
 
-Point the Cookbook at a folder or an assembly definition and it reads your types and their XML
+Point the CookBook at a folder or an assembly definition and it reads your types and their XML
 comments into pages of their own, kept up to date with the code.
 
 Code can point back. Mark a class, field, property or method with `[Documentation]` and the

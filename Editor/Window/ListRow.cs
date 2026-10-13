@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 namespace CookieJarTools.Cookbook.Editor.Window
 {
     /// <summary>
-    /// One line of a list, the way the Cookbook shows most things: something small at the front,
+    /// One line of a list, the way the CookBook shows most things: something small at the front,
     /// the name, a quieter detail after it, and a note at the end. The whole line is clickable.
     /// Lines sit in a <see cref="List"/>, which draws the frame around them.
     /// </summary>

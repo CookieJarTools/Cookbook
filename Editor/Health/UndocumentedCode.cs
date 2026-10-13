@@ -51,7 +51,7 @@ namespace CookieJarTools.Cookbook.Editor.Health
             {
                 for (var i = 0; i < paths.Count; i++)
                 {
-                    if (EditorUtility.DisplayCancelableProgressBar("Cookbook", "Counting where scripts are used… " + paths[i], i / (float)paths.Count))
+                    if (EditorUtility.DisplayCancelableProgressBar("CookBook", "Counting where scripts are used… " + paths[i], i / (float)paths.Count))
                     {
                         return;
                     }

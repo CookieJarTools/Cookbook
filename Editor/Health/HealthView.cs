@@ -38,7 +38,7 @@ namespace CookieJarTools.Cookbook.Editor.Health
             AddSection("Links that go nowhere", "A page, asset or heading that isn't there", report.BrokenLinks.Select(l => LinkRow(l, "cookbook-health__kind--link")));
             AddSection("Missing pictures", "Pictures a page shows that can't be found", report.MissingPictures.Select(l => LinkRow(l, "cookbook-health__kind--picture")));
             AddSection("Steps the project doesn't have", "Guide actions and checks with no code behind them", report.MissingSteps.Select(l => LinkRow(l, "cookbook-health__kind--step")));
-            AddSection("Pictures nothing shows", "In the Cookbook's images folders, but not in any page", report.UnusedPictures.Select(PictureRow));
+            AddSection("Pictures nothing shows", "In the CookBook's images folders, but not in any page", report.UnusedPictures.Select(PictureRow));
             AddSection("Notes for code that's gone", "Written for a type that was renamed, moved or removed — copy what's worth keeping to its new page", report.LostNotes.Select(NoteRow));
             Add(Undocumented());
             AddCodeGaps(report);

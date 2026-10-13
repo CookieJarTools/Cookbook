@@ -118,7 +118,7 @@ namespace CookieJarTools.Cookbook.Editor.Linking
             var outcome = action?.Run();
             if (action == null || (outcome != null && !outcome.Done && !outcome.Cancelled))
             {
-                Debug.LogWarning("Cookbook: " + (action == null ? "no action called " + url : outcome.Message));
+                Debug.LogWarning("CookBook: " + (action == null ? "no action called " + url : outcome.Message));
             }
         }
 
@@ -127,7 +127,7 @@ namespace CookieJarTools.Cookbook.Editor.Linking
         {
             var check = DocChecks.Find(url);
             var outcome = check?.Run();
-            Debug.Log("Cookbook: " + (check == null ? "no check called " + url : check.Name + " — " + (outcome.Passed ? "✓ " : "✗ ") + outcome.Message));
+            Debug.Log("CookBook: " + (check == null ? "no check called " + url : check.Name + " — " + (outcome.Passed ? "✓ " : "✗ ") + outcome.Message));
         }
 
         private static void ShowAsset(string path)
@@ -135,7 +135,7 @@ namespace CookieJarTools.Cookbook.Editor.Linking
             var asset = AssetDatabase.LoadMainAssetAtPath(path);
             if (asset == null)
             {
-                Debug.LogWarning("Cookbook: nothing at " + path);
+                Debug.LogWarning("CookBook: nothing at " + path);
                 return;
             }
 

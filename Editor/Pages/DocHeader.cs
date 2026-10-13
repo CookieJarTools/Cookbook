@@ -15,8 +15,8 @@ namespace CookieJarTools.Cookbook.Editor.Pages
     /// updated: 2026-09-19
     /// ---
     /// </code>
-    /// A page without a header is fine; it gets one the first time the Cookbook saves it. Lines the
-    /// Cookbook does not know are kept as they were.
+    /// A page without a header is fine; it gets one the first time the CookBook saves it. Lines the
+    /// CookBook does not know are kept as they were.
     /// </summary>
     public sealed class DocHeader
     {

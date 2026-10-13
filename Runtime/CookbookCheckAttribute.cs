@@ -3,7 +3,7 @@ using System;
 namespace CookieJarTools.Cookbook
 {
     /// <summary>
-    /// Makes a static method a check a Cookbook guide can show: a step that looks at the project and
+    /// Makes a static method a check a CookBook guide can show: a step that looks at the project and
     /// says whether it is done — "the scene has a main camera", "the addressables are built".
     /// <para>
     /// The method takes nothing and returns <c>bool</c> (true when it passes) or <c>string</c>:
@@ -11,7 +11,7 @@ namespace CookieJarTools.Cookbook
     /// </para>
     /// <para>
     /// A page shows it with a link on its own line: <c>[Scene is lit](check:scene-lit)</c>. The
-    /// Cookbook's editor has an Action… button that writes that for you.
+    /// CookBook's editor has an Action… button that writes that for you.
     /// </para>
     /// </summary>
     [AttributeUsage(AttributeTargets.Method, Inherited = false)]

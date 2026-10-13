@@ -8,7 +8,7 @@ namespace CookieJarTools.Cookbook.Editor.Pages
 {
     /// <summary>
     /// Pages kept as files in a folder on this machine — plain Markdown, so they can be edited with
-    /// anything and shared with git like any other file. Changes made outside the Cookbook are
+    /// anything and shared with git like any other file. Changes made outside the CookBook are
     /// noticed and reported.
     /// <para>
     /// Removing moves to a hidden <c>.trash</c> folder rather than deleting, so nothing removed by

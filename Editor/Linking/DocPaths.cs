@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CookieJarTools.Cookbook.Editor.Linking
 {
-    /// <summary>Paths inside the Cookbook: a relative path from a page's folder made into one from the root.</summary>
+    /// <summary>Paths inside the CookBook: a relative path from a page's folder made into one from the root.</summary>
     public static class DocPaths
     {
         /// <summary>"Combat" + "../Art/hit.png" is "Art/hit.png". Null when it climbs out of the root.</summary>
@@ -33,7 +33,7 @@ namespace CookieJarTools.Cookbook.Editor.Linking
             return url.StartsWith("http://", StringComparison.OrdinalIgnoreCase) || url.StartsWith("https://", StringComparison.OrdinalIgnoreCase) || url.StartsWith("mailto:", StringComparison.OrdinalIgnoreCase);
         }
 
-        /// <summary>A path into the Unity project rather than the Cookbook.</summary>
+        /// <summary>A path into the Unity project rather than the CookBook.</summary>
         public static bool IsProjectAsset(string url)
         {
             return url.StartsWith("Assets/", StringComparison.Ordinal) || url.StartsWith("Packages/", StringComparison.Ordinal);
