@@ -4,7 +4,7 @@
   "displayName": "Cookbook",
   "description": "In-editor documentation: Markdown pages in folders, with images, search, step-by-step guides, and links from code.",
   "unity": "6000.0",
-  "license": "MIT",
+  "license": "PolyForm-Noncommercial-1.0.0",
   "author": {
     "name": "CookieJarTools",
     "url": "https://github.com/CookieJarTools"

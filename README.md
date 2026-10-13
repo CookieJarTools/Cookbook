@@ -116,4 +116,5 @@ folders deep is no longer lost. Turn it off if you would rather only see your ow
 
 ## Licence
 
-MIT. See [LICENSE.md](LICENSE.md).
+Free for noncommercial use under the PolyForm Noncommercial License 1.0.0.
+Commercial use needs a licence, so get in touch. See [LICENSE.md](LICENSE.md).
